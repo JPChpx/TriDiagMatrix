@@ -48,7 +48,7 @@ using namespace std;
     M.Eval_Teta();
     cout<<"det = "<<M.get_det()<<endl;
 
-    /// Evaluate Invert Matrix
+    /// Evaluate M^-1
     vector<vector<double>> Ainv;
     Ainv = M.InvertTridiagonal();
 
