@@ -71,6 +71,8 @@ using namespace std;
     cout<<"X ={ ";
     for (auto x:X) cout<<x<<" , ";
     cout<<" }"<<endl;
+    
+    
     return 0;
     
     }
