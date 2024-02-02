@@ -24,12 +24,12 @@ standalone easy to use C++ Class for fast Tridigonal matrix inversion and A*X=Y 
 
  Exemple of Use : (dont forget to include "TDMatrix.h") 
       
-     #include <iostream>
-#include <vector>
-#include <cmath>
-#include "TDMatix.h"
+    #include <iostream>
+    #include <vector>
+    #include <cmath>
+    #include "TDMatix.h"
 
-using namespace std;
+    using namespace std;
 
 
     int main()
