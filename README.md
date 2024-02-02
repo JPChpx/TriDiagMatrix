@@ -1,5 +1,5 @@
 # TriDiagMatrix
-standalone C++ Class for fast Tridigonal matrix inversion and A*X=Y resolution using Thomas algoritm
+standalone easy to use C++ Class for fast Tridigonal matrix inversion and A*X=Y resolution using Thomas algoritm
 
 ![alt text](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdocs.oracle.com%2Fcd%2FE77782_01%2Fhtml%2FE77802%2Ffigures%2Fequation1211.png&f=1&nofb=1&ipt=2fc7441ade3d5bb0c9e3a5a167cab031d5bd5ff728053c6e0f38495a5ba08424&ipo=images)
 
@@ -24,23 +24,58 @@ standalone C++ Class for fast Tridigonal matrix inversion and A*X=Y resolution u
 
  Exemple of Use : (dont forget to include "TDMatrix.h") 
       
-       void main()
-       {
-          vector<double> lowerdiag = {1.0, 2.0, 3.0}; 
-          vector<double> diag = {5.0, 6.0, 7.0, 8.0}; 
-          vector<double> upperdiag = {9.0, 10.0, 11.0};
+     #include <iostream>
+#include <vector>
+#include <cmath>
+#include "TDMatix.h"
 
-          TDMatrix<double> M(diag, upperdiag, lowerdiag);
-          cout<<M<<endl;
+using namespace std;
 
-          M.Eval_Teta();      // Eval det an teta
-          cout<<"det = "<<M.get_det()<<endl;
 
-          vector<vector<double>> Ainv;    
-          Ainv = M.InvertTridiagonal();   // M-1 (NxN) 
-         
-          vector<type> Y ={ 2,0,-3, 1 }; // target vector
-          vector<type> X; // solution vector
-       
-          X = M.solve_Ax_(Y); 
-     }   
+    int main()
+    {
+
+    /// The tridiagonal Matrix
+    vector<double> diag = {5.0, 6.0, 7.0, 8.0};
+    vector<double> upperdiag = {9.0, 10.0, 11.0};
+    vector<double> lowerdiag = {1.0, 2.0, 3.0};
+
+    /// Call of class TDMatrix
+    TDMatrix<double> M(diag, upperdiag,lowerdiag);
+    cout<<M;
+    
+    /// Evaluate determinant
+    M.Eval_Teta();
+    cout<<"det = "<<M.get_det()<<endl;
+
+    /// Evaluate Invert Matrix
+    vector<vector<double>> Ainv;
+    Ainv = M.InvertTridiagonal();
+
+    /// Display the inverted matrix
+    std::cout << "Inverted Matrix:\n";
+    for (int i = 0; i < M.get_size(); ++i)
+    {
+        for (int j = 0; j < M.get_size(); ++j)
+        {
+            std::cout << Ainv[i][j] << "\t";
+        }
+        std::cout << "\n";
+    }
+    Ainv.clear();
+
+    /// Solve linear system
+    vector<double> Y = {1,2,3,4};
+    vector<double> X;
+    X = M.solve_Ax_(Y);
+    cout<<"X ={ ";
+    for (auto x:X) cout<<x<<" , ";
+    cout<<" }"<<endl;
+    return 0;
+    
+    }
+
+    (°)~(°)  
+    (=0.0=)  
+      (w)   
+    (:) (:)___°  
