@@ -1,9 +1,10 @@
 # ⚡ Fast Tridiagonal Matrix Solver and Inverter
+
  ![alt text](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdocs.oracle.com%2Fcd%2FE77782_01%2Fhtml%2FE77802%2Ffigures%2Fequation1211.png&f=1&nofb=1&ipt=2fc7441ade3d5bb0c9e3a5a167cab031d5bd5ff728053c6e0f38495a5ba08424&ipo=images)
 
 
-Une classe C++ performante pour résoudre et inverser des matrices tridiagonales, basée sur l’algorithme de **Thomas** pour la résolution et la méthode de **Usmani** pour l’inversion.
-standalone easy to use C++ Class for fast Tridigonal matrix inversion and A*X=Y resolution using Thomas algoritm
+>Une classe C++ performante pour résoudre et inverser des matrices tridiagonales, basée sur l’algorithme de **Thomas** pour la résolution et la méthode de **Usmani** pour l’inversion.
+>standalone easy to use C++ Class for fast Tridigonal matrix inversion and A*X=Y resolution using Thomas algoritm
 
 > 📌 Auteur : J.-P. Champeaux  
 > 📅 Date : Février 2024  
