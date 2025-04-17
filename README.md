@@ -28,7 +28,7 @@
 
 ## 🔧 Utilisation
 
-'''
+```cpp
 #include "TDMatrix.hpp"  // Inclure la classe optimisée
 
 int main() {
