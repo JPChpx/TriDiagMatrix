@@ -36,7 +36,7 @@ g++ -std=c++17 -O3 -o tdsolver main.cpp
 ## 🔧 Utilisation
 
 ```cpp
-#include "TDMatrix.hpp"  // Inclure la classe optimisée
+#include "TDMatrix.h"  // Inclure la classe optimisée
 
 int main() {
     std::vector<double> diag = {4, 4, 4};
