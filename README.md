@@ -55,7 +55,8 @@ int main() {
     return 0;
 }
 ```markdown
- 
+
+---
 ### 📦 Compilation
 
 ```bash
