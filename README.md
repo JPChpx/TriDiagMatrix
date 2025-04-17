@@ -3,81 +3,63 @@ standalone easy to use C++ Class for fast Tridigonal matrix inversion and A*X=Y 
 
 ![alt text](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdocs.oracle.com%2Fcd%2FE77782_01%2Fhtml%2FE77802%2Ffigures%2Fequation1211.png&f=1&nofb=1&ipt=2fc7441ade3d5bb0c9e3a5a167cab031d5bd5ff728053c6e0f38495a5ba08424&ipo=images)
 
- ---------------------------------------------------
- coded by J.-P. Champeaux (2024)
+ # ⚡ Fast Tridiagonal Matrix Solver and Inverter
 
- a[i] : matrix diagonal  [N]
- 
- b[i] : matrix upper diagonal [N-1]
- 
- c[i] : matrix lower diagonal [N-1]
- 
- - Solving system TDmatrix * X = Y
- 
- [ref] Thomas algorithm
- 
- - Inversing TDmatrix :
- 
- [ref] R. Usmani, Inversion of a tridiagonal Jacobi matrix, Linear Algebra Appl. 212/213 (1994) 413-414
- 
- -------------------------------------------------
+Une classe C++ performante pour résoudre et inverser des matrices tridiagonales, basée sur l’algorithme de **Thomas** pour la résolution et la méthode de **Usmani** pour l’inversion.
 
- Exemple of Use : (dont forget to include "TDMatrix.h") 
-      
-    #include <iostream>
-    #include <vector>
-    #include <cmath>
-    #include "TDMatix.h"
+> 📌 Auteur : J.-P. Champeaux  
+> 📅 Date : Février 2024  
 
-    using namespace std;
+---
 
+## 🚀 Fonctionnalités
 
-    int main()
-    {
+- ⚡ **Solveur rapide** pour systèmes tridiagonaux `Ax = b` (algorithme de Thomas)
+- 🧠 **Calcul du déterminant** de la matrice
+- 🔁 **Inversion complète** de la matrice tridiagonale (`A⁻¹`) via la méthode analytique de Usmani
+- 🧾 Opérateur de sortie `<<` pour afficher joliment la matrice complète
 
-    /// The tridiagonal Matrix
-    vector<double> diag = {5.0, 6.0, 7.0, 8.0};
-    vector<double> upperdiag = {9.0, 10.0, 11.0};
-    vector<double> lowerdiag = {1.0, 2.0, 3.0};
+---
 
-    /// Call of class TDMatrix
-    TDMatrix<double> M(diag, upperdiag,lowerdiag);
-    cout<<M;
-    
-    /// Evaluate determinant
-    M.Eval_Teta();
-    cout<<"det = "<<M.get_det()<<endl;
+## 📚 Références
 
-    /// Evaluate M^-1
-    vector<vector<double>> Ainv;
-    Ainv = M.InvertTridiagonal();
+- **Algorithme de Thomas** (méthode directe pour résoudre un système tridiagonal)
+- **Usmani, R. A.**, *Inversion of a tridiagonal Jacobi matrix*, Linear Algebra and its Applications, Vol. 212/213, 1994, pp. 413–414
 
-    /// Display the inverted matrix
-    std::cout << "Inverted Matrix:\n";
-    for (int i = 0; i < M.get_size(); ++i)
-    {
-        for (int j = 0; j < M.get_size(); ++j)
-        {
-            std::cout << Ainv[i][j] << "\t";
-        }
+---
+
+## 🔧 Utilisation
+
+'''
+#include "TDMatrix.hpp"  // Inclure la classe optimisée
+
+int main() {
+    std::vector<double> diag = {4, 4, 4};
+    std::vector<double> upper = {1, 1};
+    std::vector<double> lower = {1, 1};
+
+    TDMatrix<double> td(diag, upper, lower);
+
+    std::vector<double> Y = {7, 8, 7};
+    std::vector<double> X = td.solve_Ax_(Y);
+
+    std::cout << "Solution X:\n";
+    for (auto val : X) std::cout << val << " ";
+    std::cout << "\n";
+
+    std::cout << "Matrice inverse A⁻¹ :\n";
+    auto Ainv = td.InvertTridiagonal();
+    for (const auto& row : Ainv) {
+        for (auto val : row) std::cout << val << "\t";
         std::cout << "\n";
     }
-    Ainv.clear();
 
-    /// Solve linear system
-    vector<double> Y = {1,2,3,4};
-    vector<double> X;
-    X = M.solve_Ax_(Y);
-    cout<<"X ={ ";
-    for (auto x:X) cout<<x<<" , ";
-    cout<<" }"<<endl;
-    
-    
     return 0;
-    
-    }
+}
+'''
 
-    (°)~(°)  
-    (=0.0=)  
-      (w)   
-    (:) (:)___°  
+### 📦 Compilation
+
+```bash
+g++ -std=c++17 -O3 -o tdsolver main.cpp
+
