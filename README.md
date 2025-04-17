@@ -64,3 +64,12 @@ int main() {
     return 0;
 }
 ```
+#📜 License
+
+MIT License
+© JP Champeaux 2019 – Modified and structured for open-source sharing.
+
+#🤝 Contributions
+
+Pull requests, bug reports, or feature suggestions are welcome!
+Let's improve this library together 🚀
