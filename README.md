@@ -25,7 +25,14 @@
 - **Usmani, R. A.**, *Inversion of a tridiagonal Jacobi matrix*, Linear Algebra and its Applications, Vol. 212/213, 1994, pp. 413–414
 
 ---
+ 
+### 📦 Compilation
 
+```bash
+g++ -std=c++17 -O3 -o tdsolver main.cpp
+```
+
+---
 ## 🔧 Utilisation
 
 ```cpp
@@ -54,11 +61,4 @@ int main() {
 
     return 0;
 }
-```markdown
-
----
-### 📦 Compilation
-
-```bash
-g++ -std=c++17 -O3 -o tdsolver main.cpp
-
+```
